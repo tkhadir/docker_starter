@@ -1,5 +1,8 @@
 # docker_starter
 
+
+## little example of build docker using multistage
+
 ```
 FROM alpine as base
 WORKDIR /foo
