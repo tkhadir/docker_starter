@@ -18,3 +18,16 @@ COPY --from=base foo/test.txt .
 ```
 docker rm $(docker ps -a | awk '{ print $1 }')
 ```
+
+### Cleanup exited processes:
+```
+docker rm $(docker ps -q -f status=exited)
+```
+### Cleanup dangling volumes:
+```
+docker volume rm $(docker volume ls -qf dangling=true)
+```
+### Cleanup dangling images:
+```
+docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
+```
