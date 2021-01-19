@@ -12,3 +12,9 @@ FROM alpine
 WORKDIR /bar
 COPY --from=base foo/test.txt .
 ```
+
+## clean docker space
+
+```
+docker rm $(docker ps -a | awk '{ print $1 }')
+```
