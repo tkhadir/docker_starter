@@ -31,3 +31,7 @@ docker volume rm $(docker volume ls -qf dangling=true)
 ```
 docker rmi $(docker images --filter "dangling=true" -q --no-trunc)
 ```
+### Remove all images
+```
+docker rmi -f $(docker images -q)
+```
